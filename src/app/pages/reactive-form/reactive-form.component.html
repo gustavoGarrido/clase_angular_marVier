@@ -1,0 +1,56 @@
+<form [formGroup]="this.loginForm">
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+        <div *ngIf="this.loginForm.get('nombre')?.errors && this.loginForm.get('nombre')?.dirty">
+            <p *ngIf="this.loginForm.get('nombre')?.hasError('required')"> El campo es obligatorio</p>
+            <p *ngIf="this.loginForm.get('nombre')?.hasError('pattern')"> El campo no admite caracteres especiales</p>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="apellido">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>password</mat-label>
+            <input matInput formControlName="password">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Tipo Documento</mat-label>
+            <mat-select>
+              <mat-option value="DNI">DNI</mat-option>
+              <mat-option value="PASAPORTE">PASAPORTE</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Numero documento</mat-label>
+            <input matInput formControlName="numero_doc">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Telefono</mat-label>
+            <input type="text" matInput formControlName="telefono">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="fill">
+            <mat-label>Edad</mat-label>
+            <input (change)="this.validarEdad()" matInput formControlName="edad">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>nombre tutor</mat-label>
+            <input matInput formControlName="nombre_tutor">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button mat-raised-button color="primary" (click)="enviar()">Primary</button>
+    </div>
+</form>

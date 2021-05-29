@@ -1,0 +1,15 @@
+<form [formGroup]="this.formLogin">
+    <mat-form-field appearance="fill">
+        <mat-label>email</mat-label>
+        <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+        <input matInput formControlName="password">
+    </mat-form-field>
+    <div class="row">
+        <div class="row">
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+        </div>
+    </div>
+</form>
