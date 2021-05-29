@@ -1,5 +1,8 @@
 import { Component, NgModule } from '@angular/core';
-import { ComponentePruebaComponent } from './componente-prueba/componente-prueba.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CrearUsuarioComponent } from './pages/crear-usuario/crear-usuario.component';
+
+
 
 
 @Component({
@@ -12,6 +15,9 @@ export class AppComponent {
   title = 'claseMarVier';
 
   constructor(){}
+
+  color:boolean=false
+
 
   nombre_aplicacion:string = "App curso Martes y viernes";
 
@@ -30,5 +36,18 @@ export class AppComponent {
   cambiarColorTitulo(color:string){
     this.colorTitulo = color
   }
+
+  productos:any=[
+    {
+      id_producto: 1,
+      nombre_producto:"TV plana",
+    },
+    {
+      id_producto: 2,
+      nombre_producto:"Celular"
+    }
+  ]
+
+  condicion_ngIf:boolean=false;
 
 }
