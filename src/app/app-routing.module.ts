@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CrearUsuarioComponent } from './pages/crear-usuario/crear-usuario.component';
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+
 
 
 const routes: Routes = [
-  {
-    path:"crearUsuarios", component:CrearUsuarioComponent
-  }
+    {
+      path:"usuarios",
+      loadChildren:()=> import('src/app/pages/usuarios/usuarios.module').then(m=>UsuariosModule)
+    }
 ];
 
 @NgModule({

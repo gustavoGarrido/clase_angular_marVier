@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { CrearUsuarioComponent } from './pages/crear-usuario/crear-usuario.component';
+import { NavbarComponent } from './components/navbar/navbar/navbar.component';
+
 
 
 
