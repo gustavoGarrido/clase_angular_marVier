@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  prueba(){
+    this.usuariosService.prueba().subscribe(data=>console.log(data))
+  }
+
   ngOnInit(): void {
   }
 

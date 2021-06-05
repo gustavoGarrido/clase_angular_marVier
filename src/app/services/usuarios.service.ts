@@ -14,4 +14,8 @@ export class UsuariosService {
   login(loginForm:{}){
     return this.http.post<IrespBackend>('http://localhost:3000/users/login',loginForm)
   }
+
+  prueba(){
+    return this.http.get<IrespBackend>('http://localhost:3000/users/')
+  }
 }
