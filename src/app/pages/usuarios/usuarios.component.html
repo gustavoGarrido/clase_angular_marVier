@@ -3,11 +3,17 @@
         <mat-label>Nombre</mat-label>
         <input matInput formControlName="nombre">
     </mat-form-field>
+    <div *ngIf="this.formCrearUsuario.get('nombre')?.errors && this.formCrearUsuario.get('nombre')?.dirty">
+      <p *ngIf="this.formCrearUsuario.get('nombre')?.hasError('required')">El campo es obligatorio</p>
+    </div>
     
       <mat-form-field class="example-full-width">
         <mat-label>Apellido</mat-label>
         <textarea matInput formControlName="apellido"></textarea>
       </mat-form-field>
+      <div *ngIf="this.formCrearUsuario.get('apellido')?.errors && this.formCrearUsuario.get('apellido')?.dirty">
+        <p *ngIf="this.formCrearUsuario.get('apellido')?.hasError('required')">El campo es obligatorio</p>
+      </div>
 
       <mat-form-field appearance="fill">
         <mat-label>Tipo de documento</mat-label>
@@ -16,23 +22,45 @@
           <option value="PASAPORTE">PASAPORTE</option>
         </select>
       </mat-form-field>
+      <div *ngIf="this.formCrearUsuario.get('tipo_doc')?.errors && this.formCrearUsuario.get('tipo_doc')?.dirty">
+        <p *ngIf="this.formCrearUsuario.get('tipo_doc')?.hasError('required')">El campo es obligatorio</p>
+      </div>
 
       <mat-form-field class="example-full-width">
         <mat-label>Numero de documento</mat-label>
         <textarea matInput formControlName="numero_doc"></textarea>
       </mat-form-field>
+      <div *ngIf="this.formCrearUsuario.get('numero_doc')?.errors && this.formCrearUsuario.get('numero_doc')?.dirty">
+        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('required')">El campo es obligatorio</p>
+        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('maxlength')">El campo no puede superar los 8 caracteres</p>
+        <p *ngIf="this.formCrearUsuario.get('numero_doc')?.hasError('minlength')">Debe completar al menos 4 caracteres</p>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefono</mat-label>
+        <textarea matInput formControlName="telefono"></textarea>
+      </mat-form-field>
+      <div *ngIf="this.formCrearUsuario.get('telefono')?.errors && this.formCrearUsuario.get('telefono')?.dirty">
+        <p *ngIf="this.formCrearUsuario.get('telefono')?.hasError('pattern')">El campo no cumple la regex</p>
+      </div>
 
       <mat-form-field class="example-full-width">
         <mat-label>Edad</mat-label>
-        <textarea matInput formControlName="edad"></textarea>
+        <textarea (change)="this.validarEdad()" matInput formControlName="edad"></textarea>
       </mat-form-field>
 
-      <mat-form-field *ngIf="this.formCrearUsuario.get('edad')?.value > 18" class="example-full-width">
+        <mat-form-field  *ngIf="this.formCrearUsuario.get('edad')?.value > 18" class="example-full-width">
+          <mat-label>Nombre tutor</mat-label>
+          <textarea  matInput formControlName="nombre_tutor"></textarea>
+        </mat-form-field>
+        <div *ngIf="this.formCrearUsuario.get('nombre_tutor')?.errors && this.formCrearUsuario.get('nombre_tutor')?.dirty">
+          <p *ngIf="this.formCrearUsuario.get('nombre_tutor')?.hasError('required')">El campo es obligatorio</p>
+        </div>
+
+      <mat-form-field  class="example-full-width">
         <mat-label>Email</mat-label>
         <textarea matInput formControlName="email"></textarea>
       </mat-form-field>
-
-     
 
       <button mat-raised-button color="primary" (click)="registro()">Registrar</button>
 </form>
