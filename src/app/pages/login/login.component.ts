@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { UsuariosService } from '../../services/usuarios.service';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public fb:FormBuilder, private usuariosService:UsuariosService) { }
+  constructor(public fb:FormBuilder, private usuariosService:UsuariosService, public authService: AuthService) { }
 
   formLogin = this.fb.group({
     email:["", Validators.required],
@@ -19,7 +20,14 @@ export class LoginComponent implements OnInit {
 
   login(){
     this.usuariosService.login(this.formLogin.value).subscribe(resp=>{
-      console.log(resp)
+      if(resp.mensaje == "usuario encontrado"){
+        localStorage.setItem("token", resp.token) // Almacena el token
+        this.authService.authenticate() // Setea el estado de mi aplicacion a autenticate:true
+        console.log("estado", this.authService.authState.value)
+      }
+      else{
+        console.log("email o usuario invalidos")
+      }
     })
   }
 
