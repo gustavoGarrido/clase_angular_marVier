@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { NavbarModule } from './components/navbar/navbar.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { NavbarModule } from './components/navbar/navbar.module';
     FormsModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    NavbarModule
+    NavbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
