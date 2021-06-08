@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../services/auth.service';
+
 
 
 
@@ -11,7 +13,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public fb: FormBuilder, private loginService:LoginService) { }
+  constructor(public fb: FormBuilder, private loginService:LoginService, private authService: AuthService) { }
 
   formLogin = this.fb.group({
     email:["", [Validators.required, Validators.email]],
@@ -19,9 +21,23 @@ export class LoginComponent implements OnInit {
   });
 
   hacerLogin(){
-    this.loginService.login(this.formLogin.value).subscribe(resp=>{
-      console.log(resp)
-    })
+    if(this.formLogin.valid){
+      this.loginService.login(this.formLogin.value).subscribe(resp=>{
+        if(resp.mensaje =="usuario encontrado"){
+          localStorage.setItem("token", resp.token);
+          this.authService.authenticate()
+          console.log("estado auth", this.authService.authState)
+
+        }
+        else{
+          console.log(resp)
+          console.log("estado auth", this.authService.authState)
+        }
+      })
+    }
+    else{
+      console.log("formulario invalido")
+    }
   }
 
   ngOnInit(): void {
