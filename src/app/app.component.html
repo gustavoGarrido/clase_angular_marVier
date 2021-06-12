@@ -27,6 +27,15 @@
 <div class="row">
     <a routerLink="login">Login</a>
 </div>
-
+<div class="row">
+    <a routerLink="padre">Ir a componente padre</a>
+</div>
+<div class="row">
+    <a routerLink="enviarImagen">Ir a enviar imagenes</a>
+</div>
+<div *ngIf="this.authService.isAutehnticate()" class="row">
+    <a routerLink="verPost">Ir a post</a>
+</div>
+<br>
 
 <router-outlet></router-outlet>

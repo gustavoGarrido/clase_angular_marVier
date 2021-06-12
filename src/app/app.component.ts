@@ -1,4 +1,5 @@
 import { Component, NgModule } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component, NgModule } from '@angular/core';
 
 
 export class AppComponent {
+
+  constructor(public authService: AuthService){}
   title = 'claseMarVier';
   binding = "Hola mundo bindind"
   nombre:string = "Gustavo"

@@ -7,13 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PadreComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log("Se ejecuta constructor")
+  }
 
   procesaPropagar(mensaje:any){
     console.log("emision en padre", mensaje)
   }
 
   ngOnInit(): void {
+    console.log("Se ejecuta ngOnInit")
   }
+
+  ngAfterContentInit(){
+    console.log("Se ejecuta ngAfterContentInit")
+  }
+
+  ngAfterViewInit(){
+    console.log("Se ejecuta ngAfterViewInit")
+  }
+
+  ngOnDestroy(){
+    console.log("se ejecuta ngOnDestroy")
+  }
+
+
 
 }
