@@ -1,0 +1,22 @@
+<form [formGroup]="this.formUpdateU">
+    <div class="row">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Avatar</mat-label>
+            <input matInput formControlName="avatar">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button mat-raised-button color="primary" (click)="registro()">Actualizar datos</button>
+    </div>
+
+</form>

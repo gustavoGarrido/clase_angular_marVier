@@ -10,8 +10,10 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  rutaApi:string = "http://localhost:3000" 
+
   login(loginForm:{}){
-    return this.http.post<IrepBackend>('http://localhost:3000/users/login', loginForm)
+    return this.http.post<IrepBackend>(`${this.rutaApi}/users/login`, loginForm)
   }  
 
 }

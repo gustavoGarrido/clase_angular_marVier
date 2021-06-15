@@ -29,10 +29,23 @@ export class TokenInterceptor implements HttpInterceptor {
 
         }
         return event
-      })
-    )
-    
-    
+      }))
     // return next.handle(request);
   }
+
+  private addToken(request:HttpRequest<any>, token:any){
+    if(token){
+      let clone = request.clone({
+        setHeaders:{
+          Accept:'application/json',
+          'Content-Type': `Bearer ${token}`
+        }
+      })
+
+      return clone
+    }
+
+    return request
+  }
+
 }

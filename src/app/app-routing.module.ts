@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { LoginModule } from './pages/login/login.module';
+import { UpdateUsuarioModule } from './pages/update-usuario/update-usuario.module';
 
 
 
@@ -13,6 +14,10 @@ const routes: Routes = [
     {
       path:"login",
       loadChildren:()=> import('src/app/pages/login/login.module').then(m=>LoginModule)
+    },
+    {
+      path:"updateUsuario",
+      loadChildren:()=> import('src/app/pages/update-usuario/update-usuario.module').then(m=>UpdateUsuarioModule)
     }
 ];
 
