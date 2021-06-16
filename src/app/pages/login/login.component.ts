@@ -13,7 +13,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public fb: FormBuilder, private loginService:LoginService, private authService: AuthService) { }
+  constructor(public fb: FormBuilder, private loginService:LoginService, private authService: AuthService) {
+    console.log("inicia constructor")
+   }
 
   formLogin = this.fb.group({
     email:["", [Validators.required, Validators.email]],
@@ -24,6 +26,7 @@ export class LoginComponent implements OnInit {
     if(this.formLogin.valid){
       this.loginService.login(this.formLogin.value).subscribe(resp=>{
         if(resp.mensaje =="usuario encontrado"){
+          console.log(resp)
           localStorage.setItem("token", resp.token);
           this.authService.authenticate()
           console.log("estado auth", this.authService.authState)
@@ -41,6 +44,19 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("inicia ngOnInit")
+  }
+
+  ngAfterContentInit(){
+    console.log("Inicia ngAfterContentInit")
+  }
+
+  ngAfterViewInit(){
+    console.log("Inicia ngAfterViewInit")
+  }
+
+  ngOnDestroy(){
+    console.log("inicia ngOnDestroy")
   }
 
 }

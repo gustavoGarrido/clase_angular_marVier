@@ -15,6 +15,10 @@ export class AuthService {
     this.authState.next(true);
   };
 
+  isAuthenticate(){
+    return this.authState.value
+  }
+
   logoaut(){
     localStorage.removeItem("token");
     this.authState.next(false);
