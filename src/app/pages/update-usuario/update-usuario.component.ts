@@ -27,6 +27,12 @@ export class UpdateUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.usuariosServicio.getUsuario().subscribe((resp:any)=>{
+      console.log(resp)
+      this.formUpdateU.get('nombre')?.setValue(resp.data.nombre);
+      this.formUpdateU.get('avatar')?.setValue(resp.data.avatar);
+      this.formUpdateU.get('email')?.setValue(resp.data.email)
+    })
   }
 
 }

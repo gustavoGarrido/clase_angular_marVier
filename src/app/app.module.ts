@@ -9,6 +9,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import { PadreModule } from './components/padre/padre.module';
+
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { TokenInterceptor } from './services/token.interceptor';
     BrowserAnimationsModule,
     MatFormFieldModule,
     NavbarModule,
-    HttpClientModule
+    HttpClientModule,
+    PadreModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}

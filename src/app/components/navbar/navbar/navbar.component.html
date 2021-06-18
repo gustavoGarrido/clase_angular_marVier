@@ -2,7 +2,7 @@
 <mat-toolbar color="primary">
     <button mat-button [matMenuTriggerFor]="menu"><mat-icon>list</mat-icon></button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="irLogin()">login </button>
+      <button *ngIf="!this.authService.isAuthenticate()" mat-menu-item (click)="irLogin()">login </button>
       <button *ngIf="this.authService.isAuthenticate()" mat-menu-item (click)="irUpdateUsuario()">Actualizar Usuario </button>
       <!-- <button mat-menu-item (click)="irCrearUsuario()">Crear Usuario </button> -->
       <button mat-menu-item (click)="logaut()">logaout</button>

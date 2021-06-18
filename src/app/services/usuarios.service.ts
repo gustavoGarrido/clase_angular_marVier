@@ -14,4 +14,8 @@ export class UsuariosService {
     return this.http.put(`${this.rutaApi}/users/update`,dataForm,{})
   }
 
+  getUsuario(){
+    return this.http.get(`${this.rutaApi}/users/consultarUsuario`)
+  }
+
 }

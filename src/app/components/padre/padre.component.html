@@ -1,0 +1,6 @@
+<h2>COMPONENENTE PADRE</h2>
+<h4>Dato emitido: {{this.datoDelHijoAlPadre}}</h4>
+
+<button (click)="consultarDatosBakend()" >Hacer algo</button>
+
+<app-hijo [id_producto]="this.datoBakend" (propagar)="procesarPropagar($event)"></app-hijo>

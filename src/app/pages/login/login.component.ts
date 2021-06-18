@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validator, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -13,7 +14,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public fb: FormBuilder, private loginService:LoginService, private authService: AuthService) {
+  constructor(public fb: FormBuilder, private loginService:LoginService, private authService: AuthService, public router: Router) {
     console.log("inicia constructor")
    }
 
@@ -26,11 +27,9 @@ export class LoginComponent implements OnInit {
     if(this.formLogin.valid){
       this.loginService.login(this.formLogin.value).subscribe(resp=>{
         if(resp.mensaje =="usuario encontrado"){
-          console.log(resp)
           localStorage.setItem("token", resp.token);
           this.authService.authenticate()
-          console.log("estado auth", this.authService.authState)
-
+          this.router.navigate(['/paginaInicio'])
         }
         else{
           console.log(resp)

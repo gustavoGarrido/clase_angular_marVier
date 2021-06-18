@@ -4,6 +4,7 @@ import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { LoginModule } from './pages/login/login.module';
 import { UpdateUsuarioModule } from './pages/update-usuario/update-usuario.module';
 import { AuthGuard } from './guards/auth.guard';
+import { PaginaInicioModule } from './pages/pagina-inicio/pagina-inicio.module';
 
 
 
@@ -19,6 +20,11 @@ const routes: Routes = [
     {
       path:"updateUsuario",
       loadChildren:()=> import('src/app/pages/update-usuario/update-usuario.module').then(m=>UpdateUsuarioModule),
+      // canActivate:[AuthGuard]
+    },
+    {
+      path:"paginaInicio",
+      loadChildren:()=> import('src/app/pages/pagina-inicio/pagina-inicio.module').then(m=>PaginaInicioModule),
       canActivate:[AuthGuard]
     }
 ];
