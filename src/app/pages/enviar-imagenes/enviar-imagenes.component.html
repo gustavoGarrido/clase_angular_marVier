@@ -1,0 +1,5 @@
+<p>enviar-imagenes works!</p>
+
+<button type="button" (click)="fileInput.click()">Adjuntar</button>
+<input hidden #fileInput type="file" id="file" (change)="onFileChange($event)">
+<p>{{this.fileName}}</p>

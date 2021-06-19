@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router'
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(public authService: AuthService, private router: Router) { }
+
+  ambiente:string = environment.ambiente
 
   logaut(){
     this.authService.logoaut()

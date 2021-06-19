@@ -19,6 +19,8 @@ export class HijoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.id_producto)
   }
+
 
 }

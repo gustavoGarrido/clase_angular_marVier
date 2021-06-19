@@ -9,12 +9,12 @@ export class PadreComponent implements OnInit {
 
   constructor() { }
 
-  datoBakend:number = 0;
+  datoBakend:any = 0;
 
   datoDelHijoAlPadre:string=""
 
   consultarDatosBakend(){
-    this.datoBakend = 50;
+    this.datoBakend = {nombre: "gustavo", apellido:"garrido"};
   }
 
   procesarPropagar(event:any){

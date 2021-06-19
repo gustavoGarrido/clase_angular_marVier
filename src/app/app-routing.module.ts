@@ -5,6 +5,9 @@ import { LoginModule } from './pages/login/login.module';
 import { UpdateUsuarioModule } from './pages/update-usuario/update-usuario.module';
 import { AuthGuard } from './guards/auth.guard';
 import { PaginaInicioModule } from './pages/pagina-inicio/pagina-inicio.module';
+import { PageEnviaModule } from './pages/page-envia/page-envia.module';
+import { PageRecibeModule } from './pages/page-recibe/page-recibe.module';
+import { EnviarImagenesModule } from './pages/enviar-imagenes/enviar-imagenes.module';
 
 
 
@@ -26,6 +29,21 @@ const routes: Routes = [
       path:"paginaInicio",
       loadChildren:()=> import('src/app/pages/pagina-inicio/pagina-inicio.module').then(m=>PaginaInicioModule),
       canActivate:[AuthGuard]
+    },
+    {
+      path:"paginaEnvia",
+      loadChildren:()=> import('src/app/pages/page-envia/page-envia.module').then(m=>PageEnviaModule),
+      // canActivate:[AuthGuard]
+    },
+    {
+      path:"paginaRecibe/:data1",
+      loadChildren:()=> import('src/app/pages/page-recibe/page-recibe.module').then(m=>PageRecibeModule),
+      // canActivate:[AuthGuard]
+    },
+    {
+      path:"enviarImagen",
+      loadChildren:()=> import('src/app/pages/enviar-imagenes/enviar-imagenes.module').then(m=>EnviarImagenesModule),
+      // canActivate:[AuthGuard]
     }
 ];
 
