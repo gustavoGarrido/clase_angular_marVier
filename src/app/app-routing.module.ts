@@ -8,6 +8,7 @@ import { PaginaInicioModule } from './pages/pagina-inicio/pagina-inicio.module';
 import { PageEnviaModule } from './pages/page-envia/page-envia.module';
 import { PageRecibeModule } from './pages/page-recibe/page-recibe.module';
 import { EnviarImagenesModule } from './pages/enviar-imagenes/enviar-imagenes.module';
+// import { LoginComponent } from './pages/login/login.component';
 
 
 
@@ -44,7 +45,9 @@ const routes: Routes = [
       path:"enviarImagen",
       loadChildren:()=> import('src/app/pages/enviar-imagenes/enviar-imagenes.module').then(m=>EnviarImagenesModule),
       // canActivate:[AuthGuard]
-    }
+    },
+
+    {path:"**", loadChildren:()=> import('src/app/pages/login/login.module').then(m=>LoginModule), pathMatch:'full'}
 ];
 
 @NgModule({

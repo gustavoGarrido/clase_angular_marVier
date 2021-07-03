@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   hacerLogin(){
     if(this.formLogin.valid){
       this.loginService.login(this.formLogin.value).subscribe(resp=>{
+        console.log(resp)
         if(resp.mensaje =="usuario encontrado"){
           localStorage.setItem("token", resp.token);
           this.authService.authenticate()
