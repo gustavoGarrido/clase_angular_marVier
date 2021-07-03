@@ -1,0 +1,25 @@
+<h3>fecha: {{this.pipeDate | date: 'dd/MM/YYYY'}}</h3>
+
+<h3>texto en mayuscula: {{this.pipeUpper | uppercase }}</h3>
+
+<h3>texto en mayuscula: {{this.pipeUpper | uppercase }}</h3>
+
+<h3>combinar date+upper: {{this.pipeDate | date:'fullDate' | uppercase }}</h3>
+
+<h3>texto cortado: {{this.pipeSlice | slice:3 }}</h3>
+
+<h3>Numero decimal: {{this.pipeNumber | number:'1.0-2' }}</h3>
+
+<h3>Moneda: {{this.pipeCurrency | currency }}</h3>
+
+<h3>Moneda eur: {{this.pipeCurrency | currency:'US' }}</h3>
+
+<h3>Valor promesa sin pipe: {{this.valorPromesa}}</h3>
+
+<h3>Valor promesa con pipe: {{this.valorPromesa| async }}</h3>
+
+<h3>estado base de datos: {{this.estadoDb | estados }}</h3>
+
+
+
+

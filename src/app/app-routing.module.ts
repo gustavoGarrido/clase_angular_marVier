@@ -9,6 +9,7 @@ import { PadreModule } from './pages/padre/padre.module';
 import { VerPostModule } from './pages/ver-post/ver-post.module';
 import { AuthGuard } from './guards/auth.guard';
 import { EnviarImagenesModule } from './pages/enviar-imagenes/enviar-imagenes.module';
+import { PipePageModule } from './pages/pipe-page/pipe-page.module';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'enviarImagen', 
     loadChildren: () => import('src/app/pages/enviar-imagenes/enviar-imagenes.module').then(m => EnviarImagenesModule),
+  },
+  {
+    path: 'pipe', 
+    loadChildren: () => import('src/app/pages/pipe-page/pipe-page.module').then(m => PipePageModule),
   },
   {
     path:"login", component: LoginComponent
